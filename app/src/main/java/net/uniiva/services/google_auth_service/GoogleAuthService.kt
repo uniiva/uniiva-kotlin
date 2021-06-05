@@ -31,6 +31,8 @@ class GoogleAuthService(private val activity: AppCompatActivity) : GoogleAuthSer
             }
         }
     }
+
+
     override val auth: FirebaseAuth
 
     private val googleSignInClient: GoogleSignInClient
