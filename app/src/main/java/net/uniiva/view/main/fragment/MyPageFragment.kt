@@ -1,15 +1,15 @@
-package net.uniiva.main.circle
+package net.uniiva.view.main.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import net.uniiva.databinding.FragmentCircleBinding
+import net.uniiva.databinding.FragmentMypageBinding
 
-class CircleFragment : Fragment() {
+class MyPageFragment : Fragment() {
 
-    private var _binding: FragmentCircleBinding? = null
+    private var _binding: FragmentMypageBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -17,7 +17,7 @@ class CircleFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentCircleBinding.inflate(inflater, container, false)
+        _binding = FragmentMypageBinding.inflate(inflater, container, false)
         return binding.root
     }
 }

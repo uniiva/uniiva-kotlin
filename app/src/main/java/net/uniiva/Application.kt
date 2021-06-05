@@ -2,6 +2,7 @@ package net.uniiva
 
 import android.app.Application
 import androidx.appcompat.app.AppCompatActivity
+import net.uniiva.domain.main.fragment.home.HomeDomainInterface
 import net.uniiva.services.google_auth_service.GoogleAuthService
 import net.uniiva.services.google_auth_service.GoogleAuthServiceInterface
 import net.uniiva.services.google_auth_service.GoogleAuthServiceMock

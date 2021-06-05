@@ -1,4 +1,4 @@
-package net.uniiva.main
+package net.uniiva.view.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -8,8 +8,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import net.uniiva.R
 import net.uniiva.databinding.ActivityMainBinding
 import net.uniiva.services.google_auth_service.GoogleAuthServiceInterface
-import org.koin.android.ext.android.get
-import org.koin.core.parameter.parametersOf
 
 class MainActivity : AppCompatActivity() {
 
