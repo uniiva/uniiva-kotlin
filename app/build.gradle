@@ -63,4 +63,8 @@ dependencies {
     // Kotlin Coroutine
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0-native-mt'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1'
+
+    //Koin
+    implementation "io.insert-koin:koin-core:3.0.2"
+    implementation "io.insert-koin:koin-android:3.0.2"
 }
