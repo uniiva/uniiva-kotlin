@@ -1,11 +1,10 @@
-package net.uniiva.services
+package net.uniiva.services.google_auth_service
 
 import android.app.Activity
 import android.util.Log
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.LifecycleObserver
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -16,7 +15,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import net.uniiva.R
 
-class GoogleAuthService(private val activity: AppCompatActivity) : LifecycleObserver{
+class GoogleAuthService(private val activity: AppCompatActivity) : GoogleAuthServiceInterface{
 
     private val getActivityResultCallback = { result: ActivityResult ->
         if(result.resultCode == Activity.RESULT_OK){
@@ -32,8 +31,8 @@ class GoogleAuthService(private val activity: AppCompatActivity) : LifecycleObse
             }
         }
     }
+    override val auth: FirebaseAuth
 
-    val auth: FirebaseAuth
     private val googleSignInClient: GoogleSignInClient
     private val getActivityResult = activity.registerForActivityResult(
         ActivityResultContracts.StartActivityForResult(),
@@ -52,7 +51,7 @@ class GoogleAuthService(private val activity: AppCompatActivity) : LifecycleObse
     }
 
     //サインイン
-    fun googleSignIn(){
+    override fun googleSignIn(){
 
         val signInIntent = googleSignInClient.signInIntent
 
@@ -60,7 +59,7 @@ class GoogleAuthService(private val activity: AppCompatActivity) : LifecycleObse
     }
 
     //サインアウト
-    fun googleSignOut() {
+    override fun googleSignOut() {
         auth.signOut()
         googleSignInClient.signOut()
     }
