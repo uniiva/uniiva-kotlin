@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_bottom_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="net.uniiva.main.home.HomeFragment"
+        android:label="home_fragment"
+        tools:layout="@layout/fragment_home"/>
+
+    <fragment
+        android:id="@+id/navigation_mypage"
+        android:name="net.uniiva.main.mypage.MyPageFragment"
+        android:label="navigation_mypage"
+        tools:layout="@layout/fragment_mypage"/>
+
+    <fragment
+        android:id="@+id/navigation_circle"
+        android:name="net.uniiva.main.circle.CircleFragment"
+        android:label="circle_fragment"
+        tools:layout="@layout/fragment_circle"/>
+</navigation>
