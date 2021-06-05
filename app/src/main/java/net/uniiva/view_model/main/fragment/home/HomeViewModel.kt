@@ -1,13 +1,14 @@
-package net.uniiva.presenter.main.fragment.home
+package net.uniiva.view_model.main.fragment.home
 
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModel
 import net.uniiva.databinding.FragmentHomeBinding
 import net.uniiva.domain.main.fragment.home.HomeDomain
 
-class HomePresenter(
+class HomeViewModel(
     private val binding: FragmentHomeBinding,
     activity: AppCompatActivity
-) : HomePresenterInterface {
+) : HomeViewModelInterface, ViewModel() {
 
     private val homeDomain = HomeDomain(activity)
 

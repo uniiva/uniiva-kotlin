@@ -6,15 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import net.uniiva.databinding.FragmentHomeBinding
-import net.uniiva.presenter.main.fragment.home.HomePresenter
+import net.uniiva.view_model.main.fragment.home.HomeViewModel
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var homePresenter: HomePresenter
+    private lateinit var homeViewModel: HomeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,9 +30,12 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        homePresenter = HomePresenter(binding, requireActivity() as AppCompatActivity)
+        homeViewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.NewInstanceFactory()
+        ).get(HomeViewModel::class.java)
 
-        homePresenter.setView()
+        homeViewModel.setView()
 
     }
 }
