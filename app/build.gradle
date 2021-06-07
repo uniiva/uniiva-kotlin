@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
     id 'com.google.gms.google-services'
     id 'kotlin-android'
+
+    id 'kotlin-kapt'
 }
 
 android {
@@ -30,6 +32,12 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+
+
+    //DataBindingを有効化
+    buildFeatures {
+        dataBinding true
     }
 
     //ViewBindingを有効化

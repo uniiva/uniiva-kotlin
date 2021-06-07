@@ -9,13 +9,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import net.uniiva.databinding.FragmentHomeBinding
 import net.uniiva.view_model.main.fragment.home.HomeViewModel
+import net.uniiva.view_model.main.fragment.home.HomeViewModelInterface
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var homeViewModel: HomeViewModelInterface
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,10 +33,15 @@ class HomeFragment : Fragment() {
 
         homeViewModel = ViewModelProvider(
             this,
-            HomeViewModel.Factory(binding, requireActivity() as AppCompatActivity)
+            HomeViewModel.Factory(requireActivity() as AppCompatActivity)
         ).get(HomeViewModel::class.java)
 
-        homeViewModel.setView()
+        binding.apply {
 
+            signInButton.setOnClickListener{ homeViewModel.signInButtonOnClickListener() }
+            signOutButton.setOnClickListener{ homeViewModel.signOutButtonOnClickListener() }
+
+            userIdText = homeViewModel.userIdText
+        }
     }
 }
