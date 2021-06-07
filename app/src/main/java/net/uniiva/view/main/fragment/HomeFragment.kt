@@ -32,7 +32,7 @@ class HomeFragment : Fragment() {
 
         homeViewModel = ViewModelProvider(
             this,
-            ViewModelProvider.NewInstanceFactory()
+            HomeViewModel.Factory(binding, requireActivity() as AppCompatActivity)
         ).get(HomeViewModel::class.java)
 
         homeViewModel.setView()
