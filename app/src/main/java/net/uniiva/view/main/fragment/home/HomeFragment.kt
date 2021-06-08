@@ -1,4 +1,4 @@
-package net.uniiva.view.main.fragment
+package net.uniiva.view.main.fragment.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import net.uniiva.databinding.FragmentHomeBinding
 import net.uniiva.view_model.main.fragment.home.HomeViewModel
 import net.uniiva.view_model.main.fragment.home.HomeViewModelInterface
@@ -17,6 +19,9 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var homeViewModel: HomeViewModelInterface
+
+    private lateinit var homeAdapter: HomeAdapter
+    private lateinit var homeRecyclerView: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,12 +41,19 @@ class HomeFragment : Fragment() {
             HomeViewModel.Factory(requireActivity() as AppCompatActivity)
         ).get(HomeViewModel::class.java)
 
-        binding.apply {
+        homeViewModel.questions = mutableListOf("TEST1", "TEST2", "TEST3", "TEST4")
 
-//            signInButton.setOnClickListener{ homeViewModel.signInButtonOnClickListener() }
-//            signOutButton.setOnClickListener{ homeViewModel.signOutButtonOnClickListener() }
+        homeAdapter = HomeAdapter(homeViewModel)
 
-            userIdText = homeViewModel.userIdText
+        homeRecyclerView = binding.homeRecyclerView.apply {
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(context)
+            adapter = homeAdapter
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

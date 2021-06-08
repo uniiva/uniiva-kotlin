@@ -12,21 +12,10 @@ class HomeViewModel(
 
     private val homeDomain = HomeDomain(activity)
 
-    private val _userIdText: MutableLiveData<String> = MutableLiveData("")
-    override var userIdText: String
-        get() = _userIdText.value ?: ""
-        set(value){
-            _userIdText.postValue(value)
-        }
-
-    override fun signInButtonOnClickListener(){
-        userIdText = homeDomain.signIn()
-    }
-
-    override fun signOutButtonOnClickListener(){
-        homeDomain.signOut()
-        userIdText = ""
-    }
+    private val _questions: MutableLiveData<MutableList<String>> = MutableLiveData()
+    override var questions: MutableList<String>
+        get() = _questions.value ?: mutableListOf()
+        set(value) { _questions.postValue(value) }
 
     class Factory(
         private val activity: AppCompatActivity
