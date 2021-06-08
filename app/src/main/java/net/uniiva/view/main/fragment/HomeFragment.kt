@@ -38,8 +38,8 @@ class HomeFragment : Fragment() {
 
         binding.apply {
 
-            signInButton.setOnClickListener{ homeViewModel.signInButtonOnClickListener() }
-            signOutButton.setOnClickListener{ homeViewModel.signOutButtonOnClickListener() }
+//            signInButton.setOnClickListener{ homeViewModel.signInButtonOnClickListener() }
+//            signOutButton.setOnClickListener{ homeViewModel.signOutButtonOnClickListener() }
 
             userIdText = homeViewModel.userIdText
         }
