@@ -4,22 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import net.uniiva.databinding.FragmentHomeBinding
-import net.uniiva.model.fragment.home.Question
-import net.uniiva.view_model.main.fragment.home.HomeViewModel
-import net.uniiva.view_model.main.fragment.home.HomeViewModelInterface
+import net.uniiva.view_model.main.fragment.home.HomeViewModelBase
+import org.koin.android.ext.android.inject
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var homeViewModel: HomeViewModelInterface
+    private val homeViewModel: HomeViewModelBase by inject()
 
     private lateinit var homeAdapter: HomeAdapter
     private lateinit var homeRecyclerView: RecyclerView
@@ -37,12 +34,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        homeViewModel = ViewModelProvider(
-            this,
-            HomeViewModel.Factory(requireActivity() as AppCompatActivity)
-        ).get(HomeViewModel::class.java)
-
-        homeViewModel.questions = mutableListOf(Question("TITLE", "CONTENT"), Question("TITLE", "CONTENT"))
+        homeViewModel.setData()
 
         homeAdapter = HomeAdapter(homeViewModel)
 

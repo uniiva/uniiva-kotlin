@@ -1,8 +1,9 @@
 package net.uniiva.domain.main.fragment.home
 
-interface HomeDomainInterface {
+import net.uniiva.model.main.fragment.home.Question
+import org.koin.core.component.KoinComponent
 
-    fun signIn(): String
+interface HomeDomainInterface : KoinComponent{
 
-    fun signOut()
+    fun getQuestions(): MutableList<Question>
 }

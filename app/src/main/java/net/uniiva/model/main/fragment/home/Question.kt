@@ -1,4 +1,4 @@
-package net.uniiva.model.fragment.home
+package net.uniiva.model.main.fragment.home
 
 data class Question(
     val title: String,

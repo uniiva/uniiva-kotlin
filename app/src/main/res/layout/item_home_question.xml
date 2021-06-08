@@ -6,7 +6,7 @@
     <data>
         <variable
             name="question"
-            type="net.uniiva.model.fragment.home.Question"/>
+            type="net.uniiva.model.main.fragment.home.Question"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

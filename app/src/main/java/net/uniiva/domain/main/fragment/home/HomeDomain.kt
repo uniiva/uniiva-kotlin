@@ -1,23 +1,14 @@
 package net.uniiva.domain.main.fragment.home
 
-import androidx.appcompat.app.AppCompatActivity
-import net.uniiva.services.google_auth_service.GoogleAuthServiceInterface
-import org.koin.core.component.KoinComponent
+import net.uniiva.model.main.fragment.home.Question
+import net.uniiva.repository.main.fragment.home.HomeRepositoryInterface
 import org.koin.core.component.inject
-import org.koin.core.parameter.parametersOf
 
-class HomeDomain(private val activity: AppCompatActivity) : HomeDomainInterface, KoinComponent {
+class HomeDomain : HomeDomainInterface {
 
-    //Googleの認証系のサービス
-    private val googleAuthService: GoogleAuthServiceInterface by inject{(parametersOf(activity))}
+    private val homeRepository by inject<HomeRepositoryInterface>()
 
-    override fun signIn(): String{
-        googleAuthService.googleSignIn()
-        return googleAuthService.auth.currentUser.toString()
+    override fun getQuestions(): MutableList<Question>{
+        return homeRepository.getQuestion()
     }
-
-    override fun signOut(){
-        googleAuthService.googleSignOut()
-    }
-
 }

@@ -4,10 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import net.uniiva.databinding.ItemHomeQuestionBinding
-import net.uniiva.view_model.main.fragment.home.HomeViewModelInterface
+import net.uniiva.view_model.main.fragment.home.HomeViewModelBase
 
 class HomeAdapter(
-    private val homeViewModel: HomeViewModelInterface
+    private val homeViewModel: HomeViewModelBase
     ) : RecyclerView.Adapter<HomeViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
         val inflater = LayoutInflater.from(parent.context)
