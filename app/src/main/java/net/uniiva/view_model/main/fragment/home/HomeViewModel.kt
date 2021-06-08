@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import net.uniiva.domain.main.fragment.home.HomeDomain
+import net.uniiva.model.fragment.home.Question
 
 class HomeViewModel(
     activity: AppCompatActivity
@@ -12,8 +13,8 @@ class HomeViewModel(
 
     private val homeDomain = HomeDomain(activity)
 
-    private val _questions: MutableLiveData<MutableList<String>> = MutableLiveData()
-    override var questions: MutableList<String>
+    private val _questions: MutableLiveData<MutableList<Question>> = MutableLiveData()
+    override var questions: MutableList<Question>
         get() = _questions.value ?: mutableListOf()
         set(value) { _questions.postValue(value) }
 

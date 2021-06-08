@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import net.uniiva.databinding.FragmentHomeBinding
+import net.uniiva.model.fragment.home.Question
 import net.uniiva.view_model.main.fragment.home.HomeViewModel
 import net.uniiva.view_model.main.fragment.home.HomeViewModelInterface
 
@@ -41,7 +42,7 @@ class HomeFragment : Fragment() {
             HomeViewModel.Factory(requireActivity() as AppCompatActivity)
         ).get(HomeViewModel::class.java)
 
-        homeViewModel.questions = mutableListOf("TEST1", "TEST2", "TEST3", "TEST4")
+        homeViewModel.questions = mutableListOf(Question("TITLE", "CONTENT"), Question("TITLE", "CONTENT"))
 
         homeAdapter = HomeAdapter(homeViewModel)
 
