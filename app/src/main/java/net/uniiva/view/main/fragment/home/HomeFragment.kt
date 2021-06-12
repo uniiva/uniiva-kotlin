@@ -38,7 +38,7 @@ class HomeFragment : Fragment() {
 
         homeViewModel.setData()
 
-        homeAdapter = HomeAdapter(homeViewModel)
+        homeAdapter = HomeAdapter(homeViewModel, viewSetOnClickListener)
 
         homeRecyclerView = binding.homeRecyclerView.apply {
             setHasFixedSize(true)
@@ -48,7 +48,7 @@ class HomeFragment : Fragment() {
 
         binding.homeCreateBoard.setOnClickListener {
             val intent = Intent(requireActivity(), BoardActivity::class.java)
-
+            intent.putExtra("METHOD", "CREATE")
             startActivity(intent)
         }
     }
@@ -56,5 +56,11 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private val viewSetOnClickListener: (View) -> Unit = {
+        val intent = Intent(requireActivity(), BoardActivity::class.java)
+        intent.putExtra("METHOD", "SHOW")
+        startActivity(intent)
     }
 }

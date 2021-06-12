@@ -23,8 +23,15 @@ class BoardActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
         val navGraph = navController.navInflater.inflate(R.navigation.board_navigation)
 
+        val destination = when(intent.getStringExtra("METHOD")){
+            "SHOW" -> R.id.navigation_board_show
+            "CREATE" -> R.id.navigation_board_create
+
+            else -> R.id.navigation_board_create
+        }
+
         navController.graph = navGraph.apply {
-            startDestination = R.id.navigation_board_show
+            startDestination = destination
         }
     }
 }
