@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import net.uniiva.databinding.FragmentMypageBinding
+import net.uniiva.databinding.FragmentMainMypageBinding
 
 class MyPageFragment : Fragment() {
 
-    private var _binding: FragmentMypageBinding? = null
+    private var _binding: FragmentMainMypageBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -17,7 +17,7 @@ class MyPageFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentMypageBinding.inflate(inflater, container, false)
+        _binding = FragmentMainMypageBinding.inflate(inflater, container, false)
         return binding.root
     }
 }

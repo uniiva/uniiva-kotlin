@@ -3,7 +3,7 @@ package net.uniiva.view.main.fragment.home
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import net.uniiva.databinding.ItemHomeQuestionBinding
+import net.uniiva.databinding.ItemMainHomeQuestionBinding
 import net.uniiva.view_model.main.fragment.home.HomeViewModelBase
 
 class HomeAdapter(
@@ -11,7 +11,7 @@ class HomeAdapter(
     ) : RecyclerView.Adapter<HomeViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        return HomeViewHolder(ItemHomeQuestionBinding.inflate(inflater, parent, false))
+        return HomeViewHolder(ItemMainHomeQuestionBinding.inflate(inflater, parent, false))
     }
 
     override fun getItemCount(): Int {

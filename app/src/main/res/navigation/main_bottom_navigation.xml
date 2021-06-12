@@ -9,17 +9,17 @@
         android:id="@+id/navigation_home"
         android:name="net.uniiva.view.main.fragment.home.HomeFragment"
         android:label="home_fragment"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_main_home"/>
 
     <fragment
         android:id="@+id/navigation_mypage"
         android:name="net.uniiva.view.main.fragment.MyPageFragment"
         android:label="navigation_mypage"
-        tools:layout="@layout/fragment_mypage"/>
+        tools:layout="@layout/fragment_main_mypage"/>
 
     <fragment
         android:id="@+id/navigation_circle"
         android:name="net.uniiva.view.main.fragment.CircleFragment"
         android:label="circle_fragment"
-        tools:layout="@layout/fragment_circle"/>
+        tools:layout="@layout/fragment_main_circle"/>
 </navigation>
