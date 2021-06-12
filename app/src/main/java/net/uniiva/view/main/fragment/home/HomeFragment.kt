@@ -48,6 +48,7 @@ class HomeFragment : Fragment() {
 
         binding.homeCreateBoard.setOnClickListener {
             val intent = Intent(requireActivity(), BoardActivity::class.java)
+
             startActivity(intent)
         }
     }

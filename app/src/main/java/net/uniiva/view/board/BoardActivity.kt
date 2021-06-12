@@ -1,7 +1,11 @@
 package net.uniiva.view.board
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -12,5 +16,15 @@ class BoardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_board)
+
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.board_fragment_container) as NavHostFragment
+
+        val navController = navHostFragment.navController
+        val navGraph = navController.navInflater.inflate(R.navigation.board_navigation)
+
+        navController.graph = navGraph.apply {
+            startDestination = R.id.navigation_board_show
+        }
     }
 }

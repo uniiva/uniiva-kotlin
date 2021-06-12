@@ -8,7 +8,13 @@
     <fragment
         android:id="@+id/navigation_board_create"
         android:name="net.uniiva.view.board.fragment.CreateFragment"
-        android:label="board_fragment"
+        android:label="fragment_board_create"
         tools:layout="@layout/fragment_board_create"/>
+
+    <fragment
+        android:id="@+id/navigation_board_show"
+        android:name="net.uniiva.view.board.fragment.ShowFragment"
+        android:label="fragment_board_show"
+        tools:layout="@layout/fragment_board_show"/>
 
 </navigation>
