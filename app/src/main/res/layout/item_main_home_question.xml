@@ -6,7 +6,7 @@
     <data>
         <variable
             name="board"
-            type="net.uniiva.model.main.fragment.home.Board"/>
+            type="net.uniiva.model.share.Board"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

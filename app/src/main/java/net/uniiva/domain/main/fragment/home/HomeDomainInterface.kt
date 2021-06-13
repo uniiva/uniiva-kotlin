@@ -1,6 +1,6 @@
 package net.uniiva.domain.main.fragment.home
 
-import net.uniiva.model.main.fragment.home.Board
+import net.uniiva.model.share.Board
 import org.koin.core.component.KoinComponent
 
 interface HomeDomainInterface : KoinComponent{

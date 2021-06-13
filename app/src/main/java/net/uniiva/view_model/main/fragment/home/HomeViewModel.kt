@@ -3,7 +3,7 @@ package net.uniiva.view_model.main.fragment.home
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import net.uniiva.domain.main.fragment.home.HomeDomainInterface
-import net.uniiva.model.main.fragment.home.Board
+import net.uniiva.model.share.Board
 import org.koin.core.component.inject
 
 class HomeViewModel : HomeViewModelBase(){

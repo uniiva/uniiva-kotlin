@@ -1,6 +1,6 @@
 package net.uniiva.repository.main.fragment.home
 
-import net.uniiva.model.main.fragment.home.Board
+import net.uniiva.model.share.Board
 
 interface HomeRepositoryInterface {
 

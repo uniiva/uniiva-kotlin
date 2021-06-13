@@ -9,6 +9,8 @@ import net.uniiva.repository.main.fragment.home.HomeRepositoryInterface
 import net.uniiva.services.google_auth_service.GoogleAuthService
 import net.uniiva.services.google_auth_service.GoogleAuthServiceInterface
 import net.uniiva.services.google_auth_service.GoogleAuthServiceMock
+import net.uniiva.view_model.board.fragment.create.CreateViewModel
+import net.uniiva.view_model.board.fragment.create.CreateViewModelBase
 import net.uniiva.view_model.main.fragment.home.HomeViewModel
 import net.uniiva.view_model.main.fragment.home.HomeViewModelBase
 import org.koin.android.ext.koin.androidContext
@@ -27,8 +29,9 @@ class MyApplication : Application() {
     private val testModule = module{
         factory<GoogleAuthServiceInterface>{ (activity: AppCompatActivity) -> GoogleAuthServiceMock(activity) }
         factory<HomeDomainInterface> { HomeDomain() }
-        factory<HomeRepositoryInterface> { HomeRepository() }
+        single<HomeRepositoryInterface> { HomeRepository() }
         viewModel<HomeViewModelBase> { HomeViewModel() }
+        viewModel<CreateViewModelBase> { CreateViewModel() }
     }
 
     override fun onCreate() {

@@ -1,4 +1,4 @@
-package net.uniiva.model.main.fragment.home
+package net.uniiva.model.share
 
 /**
  * id: ユニークid
@@ -7,6 +7,6 @@ package net.uniiva.model.main.fragment.home
  */
 data class Board(
     val id: String,
-    val title: String,
-    val contents: String
+    var title: String,
+    var contents: String
 )

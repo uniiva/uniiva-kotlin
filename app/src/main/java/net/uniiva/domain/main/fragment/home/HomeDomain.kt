@@ -1,6 +1,6 @@
 package net.uniiva.domain.main.fragment.home
 
-import net.uniiva.model.main.fragment.home.Board
+import net.uniiva.model.share.Board
 import net.uniiva.repository.main.fragment.home.HomeRepositoryInterface
 import org.koin.core.component.inject
 
