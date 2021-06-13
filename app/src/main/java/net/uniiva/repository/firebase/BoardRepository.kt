@@ -17,8 +17,13 @@ class BoardRepository : BoardRepositoryInterface {
         return boards
     }
 
+    //渡されたIDを持つ問題を取得する関数
+    override fun findBoardOrNull(id: String): Board? {
+        return boards.firstOrNull { it.id == id }
+    }
+
+    //渡されたboardを登録する関数
     override fun createBoard(board: Board){
         boards.add(board)
     }
-
 }

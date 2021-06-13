@@ -4,6 +4,8 @@ import android.app.Application
 import androidx.appcompat.app.AppCompatActivity
 import net.uniiva.domain.board.fragment.create.CreateDomain
 import net.uniiva.domain.board.fragment.create.CreateDomainInterface
+import net.uniiva.view_model.board.fragment.show.ShowViewModel
+import net.uniiva.view_model.board.fragment.show.ShowViewModelBase
 import net.uniiva.domain.main.fragment.home.HomeDomain
 import net.uniiva.domain.main.fragment.home.HomeDomainInterface
 import net.uniiva.repository.firebase.BoardRepository
@@ -38,6 +40,7 @@ class MyApplication : Application() {
 
         viewModel<HomeViewModelBase> { HomeViewModel() }
         viewModel<CreateViewModelBase> { CreateViewModel() }
+        viewModel<ShowViewModelBase> { ShowViewModel() }
     }
 
     override fun onCreate() {
