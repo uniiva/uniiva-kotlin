@@ -58,9 +58,10 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 
-    private val viewSetOnClickListener: (View) -> Unit = {
+    private val viewSetOnClickListener: (View, String) -> Unit = { _, id ->
         val intent = Intent(requireActivity(), BoardActivity::class.java)
         intent.putExtra("METHOD", "SHOW")
+        intent.putExtra("ID", id)
         startActivity(intent)
     }
 }

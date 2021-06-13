@@ -15,6 +15,10 @@
         android:id="@+id/navigation_board_show"
         android:name="net.uniiva.view.board.fragment.ShowFragment"
         android:label="fragment_board_show"
-        tools:layout="@layout/fragment_board_show"/>
+        tools:layout="@layout/fragment_board_show">
+        <argument
+            android:name="id"
+            app:argType="string"/>
+    </fragment>
 
 </navigation>

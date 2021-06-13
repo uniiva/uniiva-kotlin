@@ -9,7 +9,7 @@ import net.uniiva.view_model.main.fragment.home.HomeViewModelBase
 
 class HomeAdapter(
     private val homeViewModel: HomeViewModelBase,
-    private val viewSetOnClickListener: (View) -> Unit
+    private val viewSetOnClickListener: (View, String) -> Unit
     ) : RecyclerView.Adapter<HomeViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
@@ -24,6 +24,8 @@ class HomeAdapter(
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         holder.setBind(homeViewModel.questions[position])
 
-        holder.view.setOnClickListener(viewSetOnClickListener)
+        holder.binding.root.setOnClickListener{
+            viewSetOnClickListener(it, holder.binding.question!!.id)
+        }
     }
 }
