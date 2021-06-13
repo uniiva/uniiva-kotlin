@@ -36,6 +36,12 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //ViewModelの値を監視対象に登録
+        homeViewModel.setObserver(viewLifecycleOwner){
+            homeAdapter.boards = it
+            homeAdapter.notifyDataSetChanged()
+        }
+
         homeAdapter = HomeAdapter(homeViewModel, viewSetOnClickListener)
 
         homeRecyclerView = binding.homeRecyclerView.apply {
