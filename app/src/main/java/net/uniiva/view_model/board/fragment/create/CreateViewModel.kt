@@ -1,7 +1,10 @@
 package net.uniiva.view_model.board.fragment.create
 
 import androidx.lifecycle.MutableLiveData
+import net.uniiva.domain.board.fragment.create.CreateDomainInterface
 import net.uniiva.model.share.Board
+import org.koin.core.component.inject
+import java.util.*
 
 class CreateViewModel : CreateViewModelBase() {
 
@@ -12,6 +15,12 @@ class CreateViewModel : CreateViewModelBase() {
         set(value) { _board.postValue(value) }
 
     init {
-        board = Board("", "", "")
+        board = Board(UUID.randomUUID().toString(), "", "")
+    }
+
+    private val createDomain: CreateDomainInterface by inject()
+
+    override fun createBoard(){
+        createDomain.createBoard(board)
     }
 }

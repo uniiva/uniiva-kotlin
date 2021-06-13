@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import net.uniiva.databinding.FragmentBoardShowBinding
@@ -29,5 +30,17 @@ class ShowFragment : Fragment() {
 
         val id = args.id
         binding.boardShowText.text = id
+
+        //戻るボタンを押したときにactivityを終わらせる処理
+        requireActivity()
+            .onBackPressedDispatcher
+            .addCallback(
+                viewLifecycleOwner,
+                object : OnBackPressedCallback(true) {
+                    override fun handleOnBackPressed() {
+                        requireActivity().finish()
+                    }
+                }
+            )
     }
 }

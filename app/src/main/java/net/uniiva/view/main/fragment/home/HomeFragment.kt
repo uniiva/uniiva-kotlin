@@ -58,6 +58,11 @@ class HomeFragment : Fragment() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        homeAdapter.notifyDataSetChanged()
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
