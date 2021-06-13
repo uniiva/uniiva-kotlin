@@ -18,14 +18,17 @@ class HomeAdapter(
     }
 
     override fun getItemCount(): Int {
-        return homeViewModel.questions.size
+        return homeViewModel.boards.size
     }
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
-        holder.setBind(homeViewModel.questions[position])
 
+        //各Viewの初期設定
+        holder.setBind(homeViewModel.boards[position])
+
+        //問題をクリックしたら画面遷移する処理
         holder.binding.root.setOnClickListener{
-            viewSetOnClickListener(it, holder.binding.question!!.id)
+            viewSetOnClickListener(it, holder.binding.board!!.id)
         }
     }
 }

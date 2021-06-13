@@ -36,8 +36,6 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        homeViewModel.setData()
-
         homeAdapter = HomeAdapter(homeViewModel, viewSetOnClickListener)
 
         homeRecyclerView = binding.homeRecyclerView.apply {
@@ -46,6 +44,7 @@ class HomeFragment : Fragment() {
             adapter = homeAdapter
         }
 
+        //fabボタンを押したときに画面遷移する処理
         binding.homeCreateBoard.setOnClickListener {
             val intent = Intent(requireActivity(), BoardActivity::class.java)
             intent.putExtra("METHOD", "CREATE")
@@ -58,6 +57,7 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 
+    //問題をタップしたときに詳細に画面遷移する処理
     private val viewSetOnClickListener: (View, String) -> Unit = { _, id ->
         val intent = Intent(requireActivity(), BoardActivity::class.java)
         intent.putExtra("METHOD", "SHOW")

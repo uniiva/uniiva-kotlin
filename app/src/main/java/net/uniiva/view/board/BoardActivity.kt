@@ -18,13 +18,14 @@ class BoardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_board)
 
+        //navControllerの取得
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.board_fragment_container) as NavHostFragment
 
         val navController = navHostFragment.navController
 
 
-        //行き場所の設定
+        //遷移場所の設定
         val destination = when(intent.getStringExtra("METHOD")){
             "SHOW" -> R.id.navigation_board_show
             "CREATE" -> R.id.navigation_board_create

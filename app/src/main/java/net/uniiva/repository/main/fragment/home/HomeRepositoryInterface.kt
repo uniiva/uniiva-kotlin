@@ -1,8 +1,9 @@
 package net.uniiva.repository.main.fragment.home
 
-import net.uniiva.model.main.fragment.home.Question
+import net.uniiva.model.main.fragment.home.Board
 
 interface HomeRepositoryInterface {
 
-    fun getQuestion(): MutableList<Question>
+    //現在出ている問題を取得する関数
+    fun getBoards(): MutableList<Board>
 }
