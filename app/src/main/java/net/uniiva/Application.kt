@@ -4,6 +4,8 @@ import android.app.Application
 import androidx.appcompat.app.AppCompatActivity
 import net.uniiva.domain.board.fragment.create.CreateDomain
 import net.uniiva.domain.board.fragment.create.CreateDomainInterface
+import net.uniiva.domain.board.fragment.show.ShowDomain
+import net.uniiva.domain.board.fragment.show.ShowDomainInterface
 import net.uniiva.view_model.board.fragment.show.ShowViewModel
 import net.uniiva.view_model.board.fragment.show.ShowViewModelBase
 import net.uniiva.domain.main.fragment.home.HomeDomain
@@ -24,6 +26,7 @@ import org.koin.dsl.module
 
 class MyApplication : Application() {
 
+    //Koinの設定
     private val module = module {
         factory<GoogleAuthServiceInterface>{ (activity: AppCompatActivity) -> GoogleAuthService(activity) }
         factory<HomeDomainInterface> { HomeDomain() }
@@ -35,6 +38,7 @@ class MyApplication : Application() {
 
         factory<HomeDomainInterface> { HomeDomain() }
         factory<CreateDomainInterface> { CreateDomain() }
+        factory<ShowDomainInterface> { ShowDomain() }
 
         single<BoardRepositoryInterface> { BoardRepository() }
 

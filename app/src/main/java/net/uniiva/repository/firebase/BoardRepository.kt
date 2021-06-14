@@ -1,5 +1,7 @@
 package net.uniiva.repository.firebase
 
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import net.uniiva.model.share.Board
 import java.util.*
 
@@ -13,17 +15,17 @@ class BoardRepository : BoardRepositoryInterface {
     )
 
     //現在出ている問題を取得する関数
-    override fun getBoards(): MutableList<Board> {
-        return boards
+    override suspend fun getBoards(): MutableList<Board> = withContext(Dispatchers.IO) {
+        return@withContext boards
     }
 
     //渡されたIDを持つ問題を取得する関数
-    override fun findBoardOrNull(id: String): Board? {
-        return boards.firstOrNull { it.id == id }
+    override suspend fun findBoardOrNull(id: String): Board? = withContext(Dispatchers.IO){
+        return@withContext boards.firstOrNull { it.id == id }
     }
 
     //渡されたboardを登録する関数
-    override fun createBoard(board: Board){
+    override suspend fun createBoard(board: Board): Boolean = withContext(Dispatchers.IO){
         boards.add(board)
     }
 }

@@ -1,16 +1,15 @@
-package net.uniiva.domain.board.fragment.create
+package net.uniiva.domain.board.fragment.show
 
 import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.runBlocking
 import net.uniiva.model.share.Board
 import net.uniiva.repository.firebase.BoardRepositoryInterface
 import org.koin.core.component.inject
 
-class CreateDomain : CreateDomainInterface {
+class ShowDomain : ShowDomainInterface {
 
     private val boardRepository: BoardRepositoryInterface by inject()
 
-    override suspend fun createBoard(board: Board): Boolean = coroutineScope {
-        boardRepository.createBoard(board)
+    override suspend fun findBoardOrNull(id: String): Board? = coroutineScope {
+        return@coroutineScope boardRepository.findBoardOrNull(id)
     }
 }

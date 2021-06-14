@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
+import kotlinx.coroutines.launch
 import net.uniiva.databinding.FragmentBoardShowBinding
 import net.uniiva.model.share.Board
 import net.uniiva.view_model.board.fragment.show.ShowViewModelBase
@@ -36,8 +38,10 @@ class ShowFragment : Fragment() {
         val id = args.id
 
         showViewModel.apply {
-            setBoard(id)
-            setObserver(viewLifecycleOwner, setObserver)
+            lifecycleScope.launch {
+                setBoard(id)
+                setObserver(viewLifecycleOwner, setObserver)
+            }
         }
 
 

@@ -5,5 +5,5 @@ import org.koin.core.component.KoinComponent
 
 interface CreateDomainInterface : KoinComponent{
 
-    fun createBoard(board: Board)
+    suspend fun createBoard(board: Board): Boolean
 }

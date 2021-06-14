@@ -4,13 +4,14 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import net.uniiva.domain.board.fragment.show.ShowDomainInterface
 import net.uniiva.model.share.Board
 import net.uniiva.repository.firebase.BoardRepositoryInterface
 import org.koin.core.component.inject
 
 class ShowViewModel : ShowViewModelBase() {
 
-    private val boardRepository: BoardRepositoryInterface by inject()
+    private val showDomain: ShowDomainInterface by inject()
 
     private val _board = MutableLiveData<Board>()
 
@@ -22,10 +23,8 @@ class ShowViewModel : ShowViewModelBase() {
             }
         }
 
-    override fun setBoard(id: String) {
-        viewModelScope.launch {
-            board = boardRepository.findBoardOrNull(id)
-        }
+    override suspend fun setBoard(id: String) = viewModelScope.launch {
+        board = showDomain.findBoardOrNull(id)
     }
 
     //_boardsを監視対象にするための関数
