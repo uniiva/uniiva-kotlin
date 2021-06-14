@@ -6,7 +6,6 @@ import kotlinx.coroutines.launch
 import net.uniiva.domain.board.fragment.create.CreateDomainInterface
 import net.uniiva.model.share.Board
 import org.koin.core.component.inject
-import java.util.*
 
 class CreateViewModel : CreateViewModelBase() {
 
@@ -17,7 +16,7 @@ class CreateViewModel : CreateViewModelBase() {
         set(value) { _board.postValue(value) }
 
     init {
-        board = Board(UUID.randomUUID().toString(), "", "")
+        board = Board("", "", "")
     }
 
     private val createDomain: CreateDomainInterface by inject()

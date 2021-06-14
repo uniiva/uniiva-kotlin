@@ -6,7 +6,7 @@ package net.uniiva.model.share
  * contents: 質問内容
  */
 data class Board(
-    val id: String,
+    var id: String,
     var title: String,
     var contents: String
 )
