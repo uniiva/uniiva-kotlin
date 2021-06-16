@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="createViewModel"
+            type="net.uniiva.view_model.board.fragment.create.CreateViewModelBase" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/board_create_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={createViewModel.board.title}"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/board_create_contents"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/board_create_title"
+            app:layout_constraintBottom_toTopOf="@id/board_create_submit"
+            android:text="@={createViewModel.board.contents}"
+            android:inputType="textMultiLine" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/board_create_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="投稿する" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/board_navigation"
+    app:startDestination="@id/navigation_board_create">
+
+    <fragment
+        android:id="@+id/navigation_board_create"
+        android:name="net.uniiva.view.board.fragment.CreateFragment"
+        android:label="navigation_board_create"
+        tools:layout="@layout/fragment_board_create">
+        <action
+            android:id="@+id/action_board_create_to_show"
+            app:destination="@id/navigation_board_show"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_board_show"
+        android:name="net.uniiva.view.board.fragment.ShowFragment"
+        android:label="navigation_board_show"
+        tools:layout="@layout/fragment_board_show">
+        <argument
+            android:name="id"
+            app:argType="string"/>
+    </fragment>
+
+</navigation>

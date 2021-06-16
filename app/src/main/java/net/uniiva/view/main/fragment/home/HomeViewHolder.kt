@@ -1,14 +1,14 @@
 package net.uniiva.view.main.fragment.home
 
 import androidx.recyclerview.widget.RecyclerView
-import net.uniiva.databinding.ItemHomeQuestionBinding
-import net.uniiva.model.main.fragment.home.Question
+import net.uniiva.databinding.ItemMainHomeQuestionBinding
+import net.uniiva.model.share.Board
 
 class HomeViewHolder(
-    private val binding: ItemHomeQuestionBinding
+    val binding: ItemMainHomeQuestionBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun setBind(question: Question){
-        binding.question = question
+    fun setBind(board: Board){
+        binding.board = board
     }
 }

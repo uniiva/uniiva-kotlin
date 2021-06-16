@@ -1,9 +1,10 @@
 package net.uniiva.domain.main.fragment.home
 
-import net.uniiva.model.main.fragment.home.Question
+import net.uniiva.model.share.Board
 import org.koin.core.component.KoinComponent
 
 interface HomeDomainInterface : KoinComponent{
 
-    fun getQuestions(): MutableList<Question>
+    //現在出ている問題を表示する関数
+    suspend fun getBoards(): MutableList<Board>
 }

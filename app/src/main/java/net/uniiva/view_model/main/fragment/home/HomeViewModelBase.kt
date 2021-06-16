@@ -1,13 +1,17 @@
 package net.uniiva.view_model.main.fragment.home
 
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
-import net.uniiva.model.main.fragment.home.Question
+import net.uniiva.model.share.Board
 import org.koin.core.component.KoinComponent
 
 abstract class HomeViewModelBase : ViewModel(), KoinComponent {
 
-    abstract var questions: MutableList<Question>
+    abstract var boards: MutableList<Board>
 
-    abstract fun setData()
-
+    //_boardsを監視対象にするための関数
+    abstract fun setObserver(
+        viewLifecycleOwner: LifecycleOwner,
+        func: (MutableList<Board>) -> Unit
+    )
 }

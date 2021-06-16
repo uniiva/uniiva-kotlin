@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import net.uniiva.databinding.FragmentCircleBinding
+import net.uniiva.databinding.FragmentMainCircleBinding
 
 class CircleFragment : Fragment() {
 
-    private var _binding: FragmentCircleBinding? = null
+    private var _binding: FragmentMainCircleBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -17,7 +17,7 @@ class CircleFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentCircleBinding.inflate(inflater, container, false)
+        _binding = FragmentMainCircleBinding.inflate(inflater, container, false)
         return binding.root
     }
 }
