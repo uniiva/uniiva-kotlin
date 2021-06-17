@@ -1,15 +1,22 @@
 package net.uniiva.domain.board.fragment.show
 
 import kotlinx.coroutines.coroutineScope
-import net.uniiva.model.share.Board
-import net.uniiva.repository.firebase.BoardRepositoryInterface
+import net.uniiva.entity.Answer
+import net.uniiva.entity.Board
+import net.uniiva.repository.answer.AnswerRepositoryInterface
+import net.uniiva.repository.board.BoardRepositoryInterface
 import org.koin.core.component.inject
 
 class ShowDomain : ShowDomainInterface {
 
     private val boardRepository: BoardRepositoryInterface by inject()
+    private val answerRepository: AnswerRepositoryInterface by inject()
 
-    override suspend fun findBoardOrNull(id: String): Board? = coroutineScope {
-        return@coroutineScope boardRepository.findBoardOrNull(id)
+    override suspend fun findBoardOrNull(boardId: String): Board? = coroutineScope {
+        return@coroutineScope boardRepository.findBoardOrNull(boardId)
+    }
+
+    override suspend fun getAnswersByBoardId(boardId: String): MutableList<Answer> = coroutineScope {
+        answerRepository.getAnswersByBoardId(boardId)
     }
 }

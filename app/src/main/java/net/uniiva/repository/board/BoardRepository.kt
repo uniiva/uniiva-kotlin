@@ -1,14 +1,14 @@
-package net.uniiva.repository.firebase
+package net.uniiva.repository.board
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import net.uniiva.model.share.Board
+import net.uniiva.entity.Board
 import java.util.*
 
 class BoardRepository : BoardRepositoryInterface {
 
     private val boards = mutableListOf(
-        Board(UUID.randomUUID().toString(), "TITLE1", "CONTENTS1"),
+        Board("1", "TITLE1", "CONTENTS1"),
         Board(UUID.randomUUID().toString(), "TITLE2", "CONTENTS2"),
         Board(UUID.randomUUID().toString(), "TITLE3", "CONTENTS3"),
         Board(UUID.randomUUID().toString(), "TITLE4", "CONTENTS4")

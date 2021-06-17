@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import kotlinx.coroutines.launch
 import net.uniiva.databinding.FragmentBoardShowBinding
-import net.uniiva.model.share.Board
+import net.uniiva.entity.Board
 import net.uniiva.view_model.board.fragment.show.ShowViewModelBase
 import org.koin.android.ext.android.inject
 
@@ -40,7 +40,7 @@ class ShowFragment : Fragment() {
 
         showViewModel.apply {
             lifecycleScope.launch {
-                setBoard(id)
+                setBoardId(id)
                 setObserver(viewLifecycleOwner, setObserver)
             }
         }

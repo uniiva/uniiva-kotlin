@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import net.uniiva.domain.board.fragment.create.CreateDomainInterface
-import net.uniiva.model.share.Board
+import net.uniiva.entity.Board
 import org.koin.core.component.inject
 
 class CreateViewModel : CreateViewModelBase() {

@@ -1,12 +1,12 @@
-package net.uniiva.model.share
+package net.uniiva.entity
 
 /**
  * id: ユニークid
  * title: タイトル
  * contents: 質問内容
  */
-data class Board(
+data class Answer(
     var id: String,
-    var title: String,
+    var boardId: String,
     var contents: String
 )

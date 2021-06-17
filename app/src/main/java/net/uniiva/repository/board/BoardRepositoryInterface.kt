@@ -1,6 +1,6 @@
-package net.uniiva.repository.firebase
+package net.uniiva.repository.board
 
-import net.uniiva.model.share.Board
+import net.uniiva.entity.Board
 
 interface BoardRepositoryInterface {
 

@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import net.uniiva.domain.board.fragment.show.ShowDomainInterface
-import net.uniiva.model.share.Board
-import net.uniiva.repository.firebase.BoardRepositoryInterface
+import net.uniiva.entity.Answer
+import net.uniiva.entity.Board
 import org.koin.core.component.inject
 
 class ShowViewModel : ShowViewModelBase() {
@@ -23,8 +23,15 @@ class ShowViewModel : ShowViewModelBase() {
             }
         }
 
-    override suspend fun setBoard(id: String) = viewModelScope.launch {
-        board = showDomain.findBoardOrNull(id)
+    private val _answers = MutableLiveData<MutableList<Answer>>()
+
+    override var answers: MutableList<Answer>
+        get() = _answers.value ?: mutableListOf()
+        set(value) = _answers.postValue(value)
+
+    override suspend fun setBoardId(boardId: String) = viewModelScope.launch {
+        board = showDomain.findBoardOrNull(boardId)
+        answers = showDomain.getAnswersByBoardId(boardId)
     }
 
     //_boardsを監視対象にするための関数

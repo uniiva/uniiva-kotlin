@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import net.uniiva.databinding.ItemMainHomeQuestionBinding
-import net.uniiva.model.share.Board
+import net.uniiva.entity.Board
 import net.uniiva.view_model.main.fragment.home.HomeViewModelBase
 
 class HomeAdapter(

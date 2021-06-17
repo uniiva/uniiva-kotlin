@@ -1,9 +1,8 @@
 package net.uniiva.domain.main.fragment.home
 
 import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.runBlocking
-import net.uniiva.model.share.Board
-import net.uniiva.repository.firebase.BoardRepositoryInterface
+import net.uniiva.entity.Board
+import net.uniiva.repository.board.BoardRepositoryInterface
 import org.koin.core.component.inject
 
 class HomeDomain : HomeDomainInterface {

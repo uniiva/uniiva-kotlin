@@ -1,8 +1,8 @@
 package net.uniiva.domain.board.fragment.create
 
 import kotlinx.coroutines.coroutineScope
-import net.uniiva.model.share.Board
-import net.uniiva.repository.firebase.BoardRepositoryInterface
+import net.uniiva.entity.Board
+import net.uniiva.repository.board.BoardRepositoryInterface
 import org.koin.core.component.inject
 import java.util.UUID
 
