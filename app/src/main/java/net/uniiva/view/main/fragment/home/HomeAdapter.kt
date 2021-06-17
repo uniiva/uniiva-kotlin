@@ -5,13 +5,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import net.uniiva.databinding.ItemMainHomeQuestionBinding
-import net.uniiva.model.share.Board
-import net.uniiva.view_model.main.fragment.home.HomeViewModelBase
+import net.uniiva.entity.Board
 
 class HomeAdapter(
-    private val homeViewModel: HomeViewModelBase,
     private val viewSetOnClickListener: (View, String) -> Unit
-    ) : RecyclerView.Adapter<HomeViewHolder>() {
+) : RecyclerView.Adapter<HomeViewHolder>() {
 
     var boards: MutableList<Board> = mutableListOf()
 

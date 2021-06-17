@@ -42,7 +42,7 @@ class HomeFragment : Fragment() {
             homeAdapter.notifyDataSetChanged()
         }
 
-        homeAdapter = HomeAdapter(homeViewModel, viewSetOnClickListener)
+        homeAdapter = HomeAdapter(viewSetOnClickListener)
 
         homeRecyclerView = binding.homeRecyclerView.apply {
             setHasFixedSize(true)

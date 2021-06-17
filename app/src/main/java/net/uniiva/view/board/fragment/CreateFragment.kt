@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import net.uniiva.databinding.FragmentBoardCreateBinding
 import net.uniiva.view_model.board.fragment.create.CreateViewModelBase
 import org.koin.android.ext.android.inject
@@ -32,16 +31,24 @@ class CreateFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.lifecycleOwner = viewLifecycleOwner
-
         binding.createViewModel = createViewModel
 
-        binding.boardCreateSubmit.setOnClickListener {
-            lifecycleScope.launch {
-                createViewModel.createBoard()
-                val action = CreateFragmentDirections.actionBoardCreateToShow(createViewModel.board.id)
-                findNavController().navigate(action)
-            }
+        binding.apply {
+
+            lifecycleOwner = viewLifecycleOwner
+
+            //作成した質問を登録するボタン
+            boardCreateSubmit.setOnClickListener { boardCreateSubmitOnClickListener() }
+        }
+    }
+
+    //作成した質問を登録するボタンを押したときの処理
+    private fun boardCreateSubmitOnClickListener(){
+        lifecycleScope.launch {
+            createViewModel.createBoard()
+            val action = CreateFragmentDirections
+                .actionNavigationBoardCreateToNavigationBoardShow(createViewModel.board.id)
+            findNavController().navigate(action)
         }
     }
 }

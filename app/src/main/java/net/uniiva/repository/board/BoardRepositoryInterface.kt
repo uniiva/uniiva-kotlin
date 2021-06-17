@@ -1,6 +1,6 @@
-package net.uniiva.repository.firebase
+package net.uniiva.repository.board
 
-import net.uniiva.model.share.Board
+import net.uniiva.entity.Board
 
 interface BoardRepositoryInterface {
 
@@ -8,7 +8,7 @@ interface BoardRepositoryInterface {
     suspend fun getBoards(): MutableList<Board>
 
     //渡されたIDを持つ問題を取得する関数
-    suspend fun findBoardOrNull(id: String): Board?
+    suspend fun findBoardOrNull(boardId: String): Board?
 
     //渡されたboardを登録する関数
     suspend fun createBoard(board: Board): Boolean

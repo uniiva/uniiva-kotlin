@@ -1,4 +1,4 @@
-package net.uniiva.model.share
+package net.uniiva.entity
 
 /**
  * id: ユニークid
