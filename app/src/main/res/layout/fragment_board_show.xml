@@ -18,4 +18,11 @@
         app:layout_constraintTop_toBottomOf="@id/board_show_board_title"
         android:textSize="15sp"/>
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/board_show_to_answer_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="解答する"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

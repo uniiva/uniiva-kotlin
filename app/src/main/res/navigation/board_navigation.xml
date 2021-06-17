@@ -11,9 +11,8 @@
         android:label="navigation_board_create"
         tools:layout="@layout/fragment_board_create">
         <action
-            android:id="@+id/action_board_create_to_show"
-            app:destination="@id/navigation_board_show"
-            app:popUpToInclusive="true"/>
+            android:id="@+id/action_navigation_board_create_to_navigation_board_show"
+            app:destination="@id/navigation_board_show" />
     </fragment>
 
     <fragment
@@ -24,6 +23,22 @@
         <argument
             android:name="id"
             app:argType="string"/>
+        <action
+            android:id="@+id/action_navigation_board_show_to_navigation_board_answer"
+            app:destination="@id/navigation_board_answer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_board_answer"
+        android:name="net.uniiva.view.board.fragment.AnswerFragment"
+        android:label="navigation_board_answer"
+        tools:layout="@layout/fragment_board_answer">
+        <argument
+            android:name="id"
+            app:argType="string"/>
+        <action
+            android:id="@+id/action_navigation_board_answer_to_navigation_board_show"
+            app:destination="@id/navigation_board_show" />
     </fragment>
 
 </navigation>

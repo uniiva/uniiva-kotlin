@@ -39,7 +39,8 @@ class CreateFragment : Fragment(){
         binding.boardCreateSubmit.setOnClickListener {
             lifecycleScope.launch {
                 createViewModel.createBoard()
-                val action = CreateFragmentDirections.actionBoardCreateToShow(createViewModel.board.id)
+                val action = CreateFragmentDirections
+                    .actionNavigationBoardCreateToNavigationBoardShow(createViewModel.board.id)
                 findNavController().navigate(action)
             }
         }

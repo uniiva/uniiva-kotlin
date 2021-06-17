@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import kotlinx.coroutines.launch
 import net.uniiva.databinding.FragmentBoardShowBinding
@@ -42,6 +43,13 @@ class ShowFragment : Fragment() {
                 setBoard(id)
                 setObserver(viewLifecycleOwner, setObserver)
             }
+        }
+
+        //解答作成画面に飛ぶボタン
+        binding.boardShowToAnswerButton.setOnClickListener {
+            val action = ShowFragmentDirections
+                .actionNavigationBoardShowToNavigationBoardAnswer(id)
+            findNavController().navigate(action)
         }
 
 
