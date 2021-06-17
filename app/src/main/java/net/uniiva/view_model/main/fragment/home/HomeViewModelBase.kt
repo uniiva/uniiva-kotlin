@@ -7,9 +7,10 @@ import org.koin.core.component.KoinComponent
 
 abstract class HomeViewModelBase : ViewModel(), KoinComponent {
 
+    //質問一覧を保持する変数
     abstract var boards: MutableList<Board>
 
-    //_boardsを監視対象にするための関数
+    //LiveData変更時の処理を登録するための関数
     abstract fun setObserver(
         viewLifecycleOwner: LifecycleOwner,
         func: (MutableList<Board>) -> Unit

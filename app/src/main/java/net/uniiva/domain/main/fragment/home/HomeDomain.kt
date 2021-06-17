@@ -9,7 +9,7 @@ class HomeDomain : HomeDomainInterface {
 
     private val boardRepository by inject<BoardRepositoryInterface>()
 
-    //現在出ている問題を取得する関数
+    //現在出ている質問を取得する関数
     override suspend fun getBoards(): MutableList<Board> = coroutineScope {
         return@coroutineScope boardRepository.getBoards()
     }

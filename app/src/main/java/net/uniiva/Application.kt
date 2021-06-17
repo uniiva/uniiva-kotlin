@@ -42,19 +42,27 @@ class MyApplication : Application() {
     private val testModule = module{
         factory<GoogleAuthServiceInterface>{ (activity: AppCompatActivity) -> GoogleAuthServiceMock(activity) }
 
-        factory<HomeDomainInterface> { HomeDomain() }
-        factory<CreateDomainInterface> { CreateDomain() }
-        factory<ShowDomainInterface> { ShowDomain() }
-        factory<AnswerDomainInterface> { AnswerDomain() }
-
-        single<BoardRepositoryInterface> { BoardRepository() }
-        single<AnswerRepositoryInterface> { AnswerRepository() }
-
+        /*** ViewModel層 ***/
+        //Main
         viewModel<HomeViewModelBase> { HomeViewModel() }
 
+        //Board
+        viewModel<AnswerViewModelBase> { AnswerViewModel() }
         viewModel<CreateViewModelBase> { CreateViewModel() }
         viewModel<ShowViewModelBase> { ShowViewModel() }
-        viewModel<AnswerViewModelBase> { AnswerViewModel() }
+
+        /*** ドメイン層 ***/
+        //Main
+        factory<HomeDomainInterface> { HomeDomain() }
+
+        //Board
+        factory<AnswerDomainInterface> { AnswerDomain() }
+        factory<CreateDomainInterface> { CreateDomain() }
+        factory<ShowDomainInterface> { ShowDomain() }
+
+        /*** リポジトリ層 ***/
+        single<AnswerRepositoryInterface> { AnswerRepository() }
+        single<BoardRepositoryInterface> { BoardRepository() }
     }
 
     override fun onCreate() {

@@ -2,8 +2,8 @@ package net.uniiva.entity
 
 /**
  * id: ユニークid
- * title: タイトル
- * contents: 質問内容
+ * boardId: 回答した質問と結びつくID
+ * contents: 回答内容
  */
 data class Answer(
     var id: String,

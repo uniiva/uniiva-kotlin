@@ -9,6 +9,9 @@ import org.koin.core.component.inject
 
 class CreateViewModel : CreateViewModelBase() {
 
+    private val createDomain: CreateDomainInterface by inject()
+
+    //作成中の質問を保持するLiveData
     private val _board = MutableLiveData<Board>()
 
     override var board: Board
@@ -16,11 +19,10 @@ class CreateViewModel : CreateViewModelBase() {
         set(value) { _board.postValue(value) }
 
     init {
-        board = Board("", "", "")
+        board = Board(createDomain.createId(), "", "")
     }
 
-    private val createDomain: CreateDomainInterface by inject()
-
+    //質問を作成する関数
     override suspend fun createBoard() = viewModelScope.launch{
         createDomain.createBoard(board)
     }

@@ -12,6 +12,7 @@ import net.uniiva.view.board.fragment.show.view_holder.ShowQuestionViewHolder
 
 class ShowAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
+    //表示する質問、回答を保持する変数
     var board = Board("", "", "")
     var answers = mutableListOf<Answer>()
 

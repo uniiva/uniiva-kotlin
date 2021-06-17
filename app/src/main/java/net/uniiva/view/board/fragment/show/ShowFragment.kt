@@ -42,11 +42,11 @@ class ShowFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val id = args.id
+        val boardId = args.boardId
 
         showViewModel.apply {
             lifecycleScope.launch {
-                setBoardId(id)
+                setBoardId(boardId)
                 setObserver(viewLifecycleOwner, setBoardObserver, setAnswersObserver)
             }
         }
@@ -62,7 +62,7 @@ class ShowFragment : Fragment() {
         //解答作成画面に飛ぶボタン
         binding.boardShowToAnswerButton.setOnClickListener {
             val action = ShowFragmentDirections
-                .actionNavigationBoardShowToNavigationBoardAnswer(id)
+                .actionNavigationBoardShowToNavigationBoardAnswer(boardId)
             findNavController().navigate(action)
         }
 
@@ -81,11 +81,13 @@ class ShowFragment : Fragment() {
 
     }
 
+    //質問内容のObserver
     private val setBoardObserver: (Board) -> Unit = {
         showAdapter.board = it
         showAdapter.notifyDataSetChanged()
     }
 
+    //回答のObserver
     private val setAnswersObserver: (MutableList<Answer>) -> Unit = {
         showAdapter.answers = it
         showAdapter.notifyDataSetChanged()

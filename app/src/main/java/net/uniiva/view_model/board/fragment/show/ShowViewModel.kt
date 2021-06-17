@@ -13,6 +13,7 @@ class ShowViewModel : ShowViewModelBase() {
 
     private val showDomain: ShowDomainInterface by inject()
 
+    //確認している質問を保持するLiveData
     private val _board = MutableLiveData<Board>()
 
     override var board: Board?
@@ -23,18 +24,20 @@ class ShowViewModel : ShowViewModelBase() {
             }
         }
 
+    //確認している回答を保持するLiveData
     private val _answers = MutableLiveData<MutableList<Answer>>()
 
     override var answers: MutableList<Answer>
         get() = _answers.value ?: mutableListOf()
         set(value) = _answers.postValue(value)
 
+    //確認する質問を決める関数
     override suspend fun setBoardId(boardId: String) = viewModelScope.launch {
         board = showDomain.findBoardOrNull(boardId)
         answers = showDomain.getAnswersByBoardId(boardId)
     }
 
-    //_boardsを監視対象にするための関数
+    //LiveData変更時の処理を登録するための関数
     override fun setObserver(
         viewLifecycleOwner: LifecycleOwner,
         boardFunc: (Board) -> Unit,

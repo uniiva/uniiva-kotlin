@@ -31,17 +31,24 @@ class CreateFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.lifecycleOwner = viewLifecycleOwner
-
         binding.createViewModel = createViewModel
 
-        binding.boardCreateSubmit.setOnClickListener {
-            lifecycleScope.launch {
-                createViewModel.createBoard()
-                val action = CreateFragmentDirections
-                    .actionNavigationBoardCreateToNavigationBoardShow(createViewModel.board.id)
-                findNavController().navigate(action)
-            }
+        binding.apply {
+
+            lifecycleOwner = viewLifecycleOwner
+
+            //作成した質問を登録するボタン
+            boardCreateSubmit.setOnClickListener { boardCreateSubmitOnClickListener() }
+        }
+    }
+
+    //作成した質問を登録するボタンを押したときの処理
+    private fun boardCreateSubmitOnClickListener(){
+        lifecycleScope.launch {
+            createViewModel.createBoard()
+            val action = CreateFragmentDirections
+                .actionNavigationBoardCreateToNavigationBoardShow(createViewModel.board.id)
+            findNavController().navigate(action)
         }
     }
 }

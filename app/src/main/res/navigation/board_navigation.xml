@@ -21,7 +21,7 @@
         android:label="navigation_board_show"
         tools:layout="@layout/fragment_board_show">
         <argument
-            android:name="id"
+            android:name="boardId"
             app:argType="string"/>
         <action
             android:id="@+id/action_navigation_board_show_to_navigation_board_answer"
@@ -34,7 +34,7 @@
         android:label="navigation_board_answer"
         tools:layout="@layout/fragment_board_answer">
         <argument
-            android:name="id"
+            android:name="boardId"
             app:argType="string"/>
         <action
             android:id="@+id/action_navigation_board_answer_to_navigation_board_show"

@@ -12,15 +12,17 @@ class AnswerViewModel : AnswerViewModelBase(){
 
     private val answerDomain: AnswerDomainInterface by inject()
 
+    //作成中の回答を保持するLiveData
     private val _answer = MutableLiveData<Answer>()
     override var answer: Answer
         get() = _answer.value ?: Answer("", "", "")
         set(value) { _answer.postValue(value) }
 
     init {
-        answer = Answer(UUID.randomUUID().toString(), "", "")
+        answer = Answer(answerDomain.createId(), "", "")
     }
 
+    //回答を作成する関数
     override suspend fun createAnswer(boardId: String) = viewModelScope.launch{
         answerDomain.createAnswer(answer.copy(boardId = boardId))
     }

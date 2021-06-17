@@ -34,21 +34,27 @@ class AnswerFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val id = args.id
-
-        binding.lifecycleOwner = viewLifecycleOwner
+        val boardId = args.boardId
 
         binding.answerViewModel = answerViewModel
 
-        binding.boardAnswerSubmit.setOnClickListener {
+        binding.apply {
 
-            lifecycleScope.launch {
-                answerViewModel.createAnswer(id)
-            }
+            lifecycleOwner = viewLifecycleOwner
 
-            val action = AnswerFragmentDirections
-                .actionNavigationBoardAnswerToNavigationBoardShow(id)
-            findNavController().navigate(action)
+            //作成した回答を送信するボタン
+            boardAnswerSubmit.setOnClickListener { boardAnswerSubmitOnClickListener(boardId) }
         }
+    }
+
+    //作成した回答を送信するボタンを押したときの処理
+    private fun boardAnswerSubmitOnClickListener(boardId: String){
+        lifecycleScope.launch {
+            answerViewModel.createAnswer(boardId)
+        }
+
+        val action = AnswerFragmentDirections
+            .actionNavigationBoardAnswerToNavigationBoardShow(boardId)
+        findNavController().navigate(action)
     }
 }

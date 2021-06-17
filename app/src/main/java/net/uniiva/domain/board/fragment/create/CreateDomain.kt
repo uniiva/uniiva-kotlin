@@ -10,13 +10,13 @@ class CreateDomain : CreateDomainInterface {
 
     private val boardRepository: BoardRepositoryInterface by inject()
 
+    //質問を作成する関数
     override suspend fun createBoard(board: Board): Boolean = coroutineScope {
-
-        board.id = createId()
         boardRepository.createBoard(board)
     }
 
-    private fun createId(): String{
+    //ユニークIDを作成する関数
+    override fun createId(): String{
         return UUID.randomUUID().toString()
     }
 }

@@ -12,10 +12,12 @@ class ShowDomain : ShowDomainInterface {
     private val boardRepository: BoardRepositoryInterface by inject()
     private val answerRepository: AnswerRepositoryInterface by inject()
 
+    //与えられたIDの質問を探す関数
     override suspend fun findBoardOrNull(boardId: String): Board? = coroutineScope {
         return@coroutineScope boardRepository.findBoardOrNull(boardId)
     }
 
+    //与えられた質問IDに対する回答を探す関数
     override suspend fun getAnswersByBoardId(boardId: String): MutableList<Answer> = coroutineScope {
         answerRepository.getAnswersByBoardId(boardId)
     }
