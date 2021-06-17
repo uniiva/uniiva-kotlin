@@ -17,6 +17,7 @@ abstract class ShowViewModelBase : ViewModel(), KoinComponent {
 
     abstract fun setObserver(
         viewLifecycleOwner: LifecycleOwner,
-        func: (Board) -> Unit
+        boardFunc: (Board) -> Unit,
+        answersFunc: (MutableList<Answer>) -> Unit
     )
 }

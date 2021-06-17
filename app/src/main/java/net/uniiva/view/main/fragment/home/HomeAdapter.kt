@@ -6,12 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import net.uniiva.databinding.ItemMainHomeQuestionBinding
 import net.uniiva.entity.Board
-import net.uniiva.view_model.main.fragment.home.HomeViewModelBase
 
 class HomeAdapter(
-    private val homeViewModel: HomeViewModelBase,
     private val viewSetOnClickListener: (View, String) -> Unit
-    ) : RecyclerView.Adapter<HomeViewHolder>() {
+) : RecyclerView.Adapter<HomeViewHolder>() {
 
     var boards: MutableList<Board> = mutableListOf()
 

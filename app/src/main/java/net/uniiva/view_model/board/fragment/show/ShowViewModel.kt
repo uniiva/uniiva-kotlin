@@ -37,8 +37,10 @@ class ShowViewModel : ShowViewModelBase() {
     //_boardsを監視対象にするための関数
     override fun setObserver(
         viewLifecycleOwner: LifecycleOwner,
-        func: (Board) -> Unit
+        boardFunc: (Board) -> Unit,
+        answersFunc: (MutableList<Answer>) -> Unit
     ){
-        _board.observe(viewLifecycleOwner, func)
+        _board.observe(viewLifecycleOwner, boardFunc)
+        _answers.observe(viewLifecycleOwner, answersFunc)
     }
 }
